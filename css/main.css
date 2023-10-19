@@ -1,0 +1,43 @@
+[data-darkMode="1"] {
+  background: #121212;
+  color: white;
+  --text-colour: white;
+  --pink1: #F4A8B7;
+  --pink2: #F4A8B7;
+  --blue1: #5BCDF9;
+  --gradient: linear-gradient(90deg, #5BCDF9 0%, #5BCDF9 20%, #F4A8B7 20%, #F4A8B7 40%, #FEFEFE 40%, #FEFEFE 60%, #F4A8B7 60%, #F4A8B7 80%, #5BCDF9 80%, #5BCDF9 100%);
+}
+
+[data-darkMode="0"] {
+  background: #f6f6f6;
+  color: black;
+  --text-colour: black;
+  --pink1: #D460A7;
+  --pink2: #E4ADCD;
+  --blue1: #57CEF8;
+  --gradient: linear-gradient(90deg, #D460A7 0%, #D460A7 14.29%, #fff 14.3%, #fff 14.3%, #E4ADCD 14.31%, #E4ADCD 28.49%, #fff 28.5%, #fff 28.5%, #FFF 28.51%, #FFF 42.79%, #fff 42.8%, #57CEF8 42.8%, #57CEF8 57.09%, #FEFEFE 57.1%, #FFF 57.1%, #FFF 57.11%, #FFF 71.39%, #fff 71.4%, #E4ADCD 71.4%, #E4ADCD 85.68%, #E4ADCD 85.69%, #fff 85.7%, #fff 85.7%, #D460A7 85.71%, #D460A7 100%);
+}
+
+body {
+  --grey: #808080;
+  padding: 0 150px;
+  font-family: "Red Hat Text", sans-serif;
+}
+
+#BackToTop p, #BackToTop h1 {
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 300;
+  display: inline;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.center-text {
+  -moz-column-count: 12;
+       column-count: 12;
+  text-align: center;
+}/*# sourceMappingURL=main.css.map */
