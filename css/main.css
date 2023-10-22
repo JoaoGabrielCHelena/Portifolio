@@ -1,18 +1,49 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
 [data-darkMode="1"] {
   --page-bg: #121212;
-  background: var(--page-bg);
-  color: white;
   --text-colour: white;
   --pink1: #F4A8B7;
   --pink2: #F4A8B7;
   --blue1: #5BCDF9;
   --gradient: linear-gradient(90deg, #5BCDF9 0%, #5BCDF9 20%, #F4A8B7 20%, #F4A8B7 40%, #FEFEFE 40%, #FEFEFE 60%, #F4A8B7 60%, #F4A8B7 80%, #5BCDF9 80%, #5BCDF9 100%);
 }
+[data-darkMode="1"] .accounts img {
+  filter: invert(100%) sepia(93%) saturate(27%) hue-rotate(105deg) brightness(105%) contrast(112%);
+}
+[data-darkMode="1"] .theme-switch svg #sun {
+  scale: 50%;
+  rotate: 180deg;
+  z-index: -1;
+  opacity: 0;
+}
+[data-darkMode="1"] .theme-switch svg *:not(#sun) {
+  translate: 2% 2%;
+  scale: 170%;
+}
+[data-darkMode="1"] .theme-switch svg #lightSide {
+  fill: var(--text-colour);
+  rotate: initial;
+  scale: 180%;
+}
 
 [data-darkMode="0"] {
   --page-bg: #f6f6f6;
-  background: var(--page-bg);
-  color: black;
   --text-colour: black;
   --pink1: #D460A7;
   --pink2: #E4ADCD;
@@ -52,7 +83,7 @@
 }
 
 .color-grey {
-  color: var(--grey);
+  color: var(--grey) !important;
 }
 
 .span-1 {
@@ -157,8 +188,27 @@
   grid-column-start: 12;
 }
 
+.hide {
+  animation: fadeOut 300ms forwards;
+}
+
+.appear {
+  animation: fadeIn 300ms;
+}
+
+* {
+  transition: 300ms background;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   --grey: #808080;
+  background: var(--page-bg);
+  color: var(--text-colour);
   font-family: "Red Hat Text", sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -169,26 +219,26 @@ body {
   grid-template-columns: repeat(12, 1fr);
 }
 
-main, footer, header {
+main, footer {
   box-sizing: border-box;
   --page-padding: 150px;
   padding: 0 var(--page-padding);
 }
 
-header {
+nav {
   position: sticky;
   grid-column: span 12;
   width: 100%;
   z-index: 1000;
   top: 0;
+  margin-bottom: 160px;
 }
-header .navbar-collapse {
+nav .navbar-collapse {
   --element-padding: 2rem;
   visibility: hidden;
   position: absolute;
   right: calc(var(--page-padding) - var(--element-padding));
   margin-top: calc(70px - var(--element-padding));
-  pointer-events: none;
   background: var(--page-bg);
   border: 1px solid var(--text-colour);
   padding: var(--element-padding);
@@ -197,59 +247,96 @@ header .navbar-collapse {
   opacity: 0;
   transition: 100ms visibility, 200ms opacity;
 }
-header .show {
+nav .show {
   opacity: 1;
   visibility: visible;
 }
-header .navbar-toggler {
+nav .navbar-toggler {
   z-index: 3;
   position: absolute;
   right: var(--page-padding);
   background: transparent;
   border: none;
-  margin-top: 50px;
+  margin-top: 70px;
   cursor: pointer;
 }
-header .navbar-nav {
+nav .navbar-toggler svg {
+  fill: var(--text-colour);
+  overflow: visible;
+  filter: drop-shadow(0px 0px 2px var(--page-bg));
+}
+nav .navbar-nav {
   margin: 0;
   padding: 0;
 }
-header svg {
-  fill: var(--text-colour);
+nav .theme-switch {
+  padding: 3px 0 0 0;
+  border: none;
+  background: transparent;
+  z-index: 3;
+  position: absolute;
+  right: calc(var(--element-padding) + 4px);
+  top: calc(130px - var(--element-padding));
+  cursor: pointer;
 }
-header li::marker {
+nav .theme-switch * {
+  transform-origin: center;
+}
+nav li::marker {
   content: "";
 }
-header a {
+nav a {
   position: relative;
-  pointer-events: initial;
   font-size: 32px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
   text-decoration: none;
   color: var(--text-colour);
+  opacity: 1;
 }
-header a:hover {
+nav a:hover {
   text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
-header li {
+nav li {
   margin-bottom: 1rem;
+  height: 42px;
 }
-header [aria-expanded=true] svg path:first-child {
+nav [aria-expanded=true] svg path:first-child {
   rotate: 45deg;
   translate: 20% -42%;
 }
-header [aria-expanded=true] svg path:last-child {
+nav [aria-expanded=true] svg path:last-child {
   translate: 115% 30%;
   rotate: 135deg;
 }
 
+#sun {
+  fill: var(--text-colour);
+}
+
+#circle {
+  fill: var(--text-colour);
+}
+
+#lightSide {
+  rotate: -180deg;
+}
+
 path {
-  transition: 300ms;
+  transition: 300ms ease-out;
+}
+
+section {
+  display: grid;
+  grid-template-columns: subgrid;
+  gap: 20px;
+  min-height: 100vh;
 }
 
 #BackToTop {
+  margin-top: -160px;
   position: relative;
 }
 #BackToTop .hero {
@@ -280,6 +367,9 @@ path {
   background: var(--page-bg);
   padding: 0 1rem 1rem 1rem;
 }
+.currently-doing h2 {
+  margin-top: 0;
+}
 .currently-doing::before {
   content: "";
   height: 10px;
@@ -294,45 +384,70 @@ path {
   padding: 0 1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 .currently-doing .items * {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 25px;
+  display: flex;
+  align-items: center;
 }
 .currently-doing .items *::before {
   content: "";
   display: inline-block;
   height: 24px;
-  transform: translateY(25%);
   aspect-ratio: 1;
   border-radius: 50%;
   margin-right: 0.5rem;
 }
-.currently-doing .items *:nth-child(odd)::before {
+.currently-doing .items *:nth-child(n)::before {
   background: var(--pink1);
 }
-.currently-doing .items *:nth-child(even)::before {
+.currently-doing .items *:nth-child(2n)::before {
   background: var(--blue1);
+}
+.currently-doing .items *:nth-child(3n)::before {
+  background: var(--blue1);
+}
+.currently-doing .items *:nth-child(4n)::before {
+  background: var(--pink1);
+}
+
+.bio {
+  font-size: 18px;
+  margin-top: 4px;
+  text-align: justify;
 }
 
 #Showcase {
-  padding: 0;
+  padding: 1rem 0 0 0;
   grid-auto-rows: minmax(200px, 250px);
 }
 #Showcase h2, #Showcase h2 + p {
   margin: 0;
 }
-#Showcase h2 {
-  margin-top: 2rem;
+#Showcase a {
+  text-decoration: none;
+  color: var(--text-colour);
+}
+#Showcase a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 #Showcase img {
   grid-row: span 3;
-  height: 100%;
-  background: #808080;
+  height: auto;
+  align-self: center;
+  padding: 1rem;
+  width: 100%;
+  border: var(--text-colour) 1px solid;
 }
 
+#Contact {
+  padding-top: 1rem;
+}
 #Contact form fieldset {
   border: none;
   padding: 0;
@@ -354,6 +469,14 @@ path {
 #Contact [type=submit]:hover {
   cursor: pointer;
 }
+#Contact svg {
+  margin-top: 25px;
+}
+#Contact svg * {
+  transform-origin: center;
+  fill: var(--text-colour);
+  opacity: 0;
+}
 #Contact input, #Contact textarea {
   border: 1px solid var(--text-colour);
   background: transparent;
@@ -367,44 +490,42 @@ path {
   min-height: 250px;
 }
 
-.social {
+.accounts {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: min-content;
   gap: 20px;
 }
-.social a {
+.accounts a, .accounts > div {
   text-decoration: none;
   align-items: center;
 }
-.social p {
+.accounts p {
   text-decoration: none;
   color: var(--text-colour);
 }
-.social .large-text {
+.accounts a:hover .large-text {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+.accounts .large-text {
   margin: 1rem 0 0 0;
 }
-.social .small-text {
+.accounts .small-text {
   margin: 0 0 1rem 0;
 }
-.social img {
+.accounts img {
   width: 100%;
 }
 
-section {
-  display: grid;
-  grid-template-columns: subgrid;
-  gap: 20px;
-  min-height: 100vh;
-}
-
 footer {
-  height: calc(98vh - 5px);
+  height: calc(99vh - 5px);
   background: #121212;
   position: relative;
 }
-footer img {
+footer svg {
   margin-top: 35vh;
+  filter: drop-shadow(0px 0px 4px #FFF);
 }
 footer > div {
   margin-top: 10vh;
@@ -419,6 +540,7 @@ footer a {
 }
 footer a:hover {
   text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 footer::before {
   content: "";

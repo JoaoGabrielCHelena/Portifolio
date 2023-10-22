@@ -8,42 +8,60 @@
 
     <link rel="stylesheet" href="css/main.css">
 
+    <script defer src="js/bootstrap.min.js"></script>
+    <script defer src="js/main.js"></script>
+
+    <script defer src="js/theme-switch.js"></script>
+
+    <script defer data-cfasync="false" src="js/form-submission-handler.js"></script>
+
+    <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;700&family=Red+Hat+Text:wght@300;400;700&display=swap"
         rel="stylesheet">
-    <script defer src="js/bootstrap.min.js"></script>
 </head>
 
 <body data-darkMode="0">
-    <header>
+    <main class="span-12">
         <nav>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <svg width="55" height="100" viewBox="0 0 45 22" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2.0455 0H42.9545L45 0L45 2.57658V5.15315H42.9545H2.0455H5.11825e-05V2.57658V0L2.0455 0Z"/>
-                    <path d="M2.0455 16.8468H42.9545H45V19.4234V22H42.9545H0L5.11825e-05 19.4234L0 16.8468H2.0455Z"/>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <svg width="55" height="55" viewBox="0 0 45 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 2.57657H45V0.576569H0V2.57657Z" />
+                    <path d="M45 17.4234H0V19.4234H45V17.4234Z" />
                 </svg>
             </button>
-            <div class="navbar-collapse" id="navbarTogglerDemo01">
+            <div class="navbar-collapse" id="navbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#BackToTop" >Back To Top</a>
+                        <a class="nav-link hide" href="#BackToTop">Back To Top</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#AboutMe" >About me</a>
+                        <a class="nav-link" href="#AboutMe">About me</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Showcase" >Showcase</a>
+                        <a class="nav-link" href="#Showcase">Showcase</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Contact" >Contact</a>
+                        <a class="nav-link" href="#Contact">Contact</a>
                     </li>
                 </ul>
+                <button class="theme-switch">
+                    <svg width="55" height="55" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path id="circle" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M24 13.25C18.0629 13.25 13.25 18.0629 13.25 24C13.25 29.9371 18.0629 34.75 24 34.75C29.9371 34.75 34.75 29.9371 34.75 24C34.75 18.0629 29.9371 13.25 24 13.25ZM14.75 24C14.75 18.8914 18.8914 14.75 24 14.75C29.1086 14.75 33.25 18.8914 33.25 24C33.25 29.1086 29.1086 33.25 24 33.25C18.8914 33.25 14.75 29.1086 14.75 24Z" />
+                        <path id="sun" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M24.5 0.939331L18.1893 7.24998H7.24999V18.1893L0.939331 24.5L7.24999 30.8106V40.75H17.1893L24.5 48.0606L31.8106 40.75H40.75V31.8106L48.0606 24.5L40.75 17.1893V7.24998H30.8106L24.5 0.939331ZM24.5 3.06065L30.1893 8.74998H39.25V17.8107L45.9393 24.5L39.25 31.1893V39.25H31.1893L24.5 45.9393L17.8107 39.25H8.74999V30.1893L3.06065 24.5L8.74999 18.8106V8.74998H18.8107L24.5 3.06065Z" />
+                        <path id="darkSide"
+                            d="M24 14.75C18.8914 14.75 14.75 18.8914 14.75 24C14.75 29.1086 18.8914 33.25 24 33.25V14.75Z" />
+                        <path id="lightSide"
+                            d="M33.25 24C33.25 18.8914 29.1086 14.75 24 14.75V33.25C29.1086 33.25 33.25 29.1086 33.25 24Z" />
+                    </svg>
+                </button>
             </div>
         </nav>
-    </header>
-    <main class="span-12">
         <section id="BackToTop">
             <div class="hero">
                 <p>Hi! *^^*</p>
@@ -60,88 +78,100 @@
                 <h2 class="large-text">Newby Webdev</h2>
             </div>
             <div class="span-4 grid-start-2">
-                <p>Very fluffer text about my righteous self
-                    Norem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
+                <p class="bio">I am a young Webdev from Brazil. I have been messing around with front-end development
+                    for the better part of 2 years now. I enjoy trying new ideas, learning new things, and minimalist
+                    design.
                 </p>
             </div>
             <div class="span-5 grid-start-7">
                 <div class="currently-doing">
                     <h2 class="large-text">Currently Doing:</h2>
                     <div class="items">
-                        <p>Placeholder thing</p>
-                        <p>Placeholder thing</p>
+                        <p>Learning to use SASS effectively</p>
+                        <p>Getting comfortable with DOM manipulation</p>
                     </div>
                 </div>
             </div>
         </section>
         <section id="Showcase">
             <div class="span-12 subgrid">
-                <img src="" alt="" class="span-4">
+                <img src="assets/images/News_Homepage.png" alt="" class="span-4">
                 <div class="grid-start-5 span-8">
-                    <h2 class="large-text">Placeholder Tile</h2>
-                    <p class="small-text color-grey">from: PlaceHolder Source</p>
+                    <h2 class="large-text"><a href="https://koala5617.github.io/News-homepage-FM/" target="_blank">News
+                            Homepage</a>
+                    </h2>
+                    <a href="https://www.frontendmentor.io/" class="small-text color-grey" target="_blank">from:
+                        Frontendmentor.io</a>
                 </div>
-                <p class="grid-start-5 span-5">Norem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
-                    Norem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+                <p class="grid-start-5 span-5">In this challenge i feel like i used CSS Grid effectively. It has nice
+                    responsivity and boxes are aligned nicely.</p>
             </div>
             <div class="span-12 subgrid">
-                <img src="" alt="" class="span-4 grid-start-9">
+                <img src="assets/images/Expenses_Chart.png" alt="" class="span-4 grid-start-9">
                 <div class="span-5 grid-start-4">
-                    <h2 class="large-text">Placeholder Tile</h2>
-                    <p class="small-text color-grey">from: PlaceHolder Source</p>
+                    <h2 class="large-text"><a href="https://koala5617.github.io/Expenses-chart-component-FM/"
+                            target="_blank">Expenses
+                            Chart Component</a></h2>
+                    <a href="https://www.frontendmentor.io/" class="small-text color-grey" target="_blank">from:
+                        Frontendmentor.io</a>
                 </div>
-                <p class="span-5 grid-start-4">Norem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
-                    Norem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+                <p class="span-5 grid-start-4">A challenge involving an increased amount of javascript for me.
+                    Shows to me that I need to learn something beyond vanilla js</p>
             </div>
             <div class="span-12 subgrid">
-                <img src="" alt="" class="span-4">
+                <img src="assets/images/TTD.png" alt="" class="span-4">
                 <div class="grid-start-5 span-8">
-                    <h2 class="large-text">Placeholder Tile</h2>
-                    <p class="small-text color-grey">from: PlaceHolder Source</p>
+                    <h2 class="large-text"><a href="https://github.com/Koala5617/Time-tracking-dashboard-FM"
+                            target="_blank">Time
+                            Tracking Dashboard</a></h2>
+                    <a href="https://www.frontendmentor.io/" class="small-text color-grey" target="_blank">from:
+                        Frontendmentor.io</a>
                 </div>
-                <p class="grid-start-5 span-5">Norem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
-                    Norem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+                <p class="grid-start-5 span-5">Here, I managed to utilise CSS grid with SASS mixins to efficiently make
+                    all the layouts with little trouble. This is one which I quite like the end product of.</p>
             </div>
         </section>
         <section id="Contact">
-            <div class="span-4 social">
-                <h2 class="span-4">Contacts</h2>
-                <a href="https://github.com/Koala5617" class="span-4 subgrid">
+            <div class="span-4 accounts">
+                <h2 class="span-4">Where I am</h2>
+                <a href="https://github.com/Koala5617" class="span-4 subgrid" target="_blank">
                     <img src="assets/icons/Github.svg" alt="" class="span-1">
                     <div class="span-3 grid-start-2">
                         <p class="large-text">Github</p>
                         <p class="small-text">github.com/Koala5617</p>
                     </div>
                 </a>
-                <a href="#" class="span-4 subgrid">
+                <div href="#" class="span-4 subgrid">
                     <div class="span-3 align-right">
                         <p class="large-text">Email</p>
                         <p class="small-text">JoaoGabrielCHelena@gmail.com</p>
                     </div>
                     <img src="assets/icons/EnvelopeFill.svg" alt="" class="span-1 grid-start-4">
-                </a>
+                </div>
             </div>
             <div class="grid-start-7 span-6 subgrid">
                 <h2 class="span-6">Hit me an email!</h2>
-                <form action="" class="span-6 subgrid">
+                <form
+                    action="https://script.google.com/macros/s/AKfycbzbNci3Ct01tA60FHzoRgaROk24kX9WkwP2f7hmao1tDRymt-1bKjgP4YZDpm1LXctnIQ/exec"
+                    enctype="text/plain" method="post" class="span-6 subgrid gform">
                     <!-- remove default styling with border and display -->
-                    <fieldset class="span-6">
-                        <legend>Email Form</legend>
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" class="normal-text">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" class="normal-text">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" class="normal-text"></textarea>
-                        <input type="submit" value="Send Email" class="span-3 normal-text">
-                    </fieldset>
+                    <!-- <legend>Email Form</legend> -->
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" class="normal-text" required>
+                    <label for="email">Your Email</label>
+                    <input type="email" name="email" id="email" class="normal-text" required>
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" class="normal-text" required></textarea>
+                    <input type="submit" value="Send Email" class="span-3 normal-text">
+                    <div class="span-1 grid-start-4">
+                        <svg width="60" height="56" viewBox="0 0 60 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path id="checkCircle"
+                                d="M28 1.5C13.3645 1.5 1.5 13.3645 1.5 28C1.5 42.6355 13.3645 54.5 28 54.5C42.6355 54.5 54.5 42.6355 54.5 28C54.5 27.1724 54.4621 26.3537 54.3879 25.5457L55.3837 25.4543C55.4607 26.2927 55.5 27.1418 55.5 28C55.5 43.1878 43.1878 55.5 28 55.5C12.8122 55.5 0.5 43.1878 0.5 28C0.5 12.8122 12.8122 0.5 28 0.5C33.6525 0.5 38.9081 2.20594 43.2781 5.13114L42.7219 5.96215C38.5113 3.14369 33.4484 1.5 28 1.5Z" />
+                            <path id="check"
+                                d="M59.3507 9.35642L28.0037 40.1977L14.1532 26.8602L14.8468 26.1398L27.9963 38.8023L58.6493 8.64358L59.3507 9.35642Z" />
+                        </svg>
+
+                    </div>
                 </form>
             </div>
 
@@ -149,13 +179,32 @@
     </main>
     <!-- for gradient borders, use an ::after -->
     <footer class="span-12 subgrid">
-        <div class="span-2">
+        <div class="span-4">
             <a href="#BackToTop" class="large-text">Back to top</a>
             <a href="#AboutMe" class="large-text">About me</a>
             <a href="#Showcase" class="large-text">Showcase</a>
             <a href="#Contact" class="large-text">Contact</a>
         </div>
-        <img src="assets/icons/Polygon.svg" alt="" class="span-4 grid-start-8">
+        <svg width="364" height="364" viewBox="0 0 364 364" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="span-4 grid-start-8">
+            <path
+                d="M143.539 143.539L133.233 182L143.539 220.461L182 230.767L220.461 220.461L230.767 182L220.461 143.539L182 133.233L143.539 143.539Z"
+                fill="white" />
+            <path d="M220.461 220.461L215.308 239.692L248.617 248.617L239.692 215.308L220.461 220.461Z" fill="white" />
+            <path d="M215.308 124.308L220.461 143.539L239.692 148.692L248.617 115.383L215.308 124.308Z" fill="white" />
+            <path d="M143.539 220.461L124.308 215.308L115.383 248.617L148.692 239.692L143.539 220.461Z" fill="white" />
+            <path d="M124.308 148.692L143.539 143.539L148.692 124.308L115.383 115.383L124.308 148.692Z" fill="white" />
+            <path d="M182 230.767L148.692 239.692L175.466 339.617L182 364L188.534 339.617L215.308 239.692L182 230.767Z"
+                fill="white" />
+            <path
+                d="M148.692 124.308L182 133.233L215.308 124.308L188.534 24.3834L182 0L175.466 24.3834L162.079 74.3458L148.692 124.308Z"
+                fill="white" />
+            <path
+                d="M239.692 148.692L230.767 182L239.692 215.308L339.617 188.534L364 182L339.617 175.466L239.692 148.692Z"
+                fill="white" />
+            <path d="M133.233 182L124.308 148.692L24.3834 175.466L0 182L24.3834 188.534L124.308 215.308L133.233 182Z"
+                fill="white" />
+        </svg>
     </footer>
 </body>
 
