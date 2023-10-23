@@ -1,5 +1,6 @@
 @mixin toWhite()
     filter: invert(100%) sepia(93%) saturate(27%) hue-rotate(105deg) brightness(105%) contrast(112%)
+    
         
 @keyframes fadeIn 
     from 
@@ -246,14 +247,16 @@ path
     transition: 300ms ease-out
 
 
-@media screen and ( min-width: 800px  )
-    section
-        display: grid
-        grid-template-columns: subgrid
 
 section
+    display: grid
+    grid-template-columns: subgrid
     gap: 20px
     min-height: 100vh
+    @media screen and ( max-width: 800px  )
+        display: flex
+        flex-direction: column
+        justify-content: space-evenly
 
 
 #BackToTop
@@ -289,6 +292,9 @@ section
     position: relative
     background: var(--page-bg)
     padding: 0 1rem 1rem 1rem
+    @media screen and ( max-width: 800px )
+        padding: 0 .25rem 1rem .25rem
+        
     h2
         margin-top: 0
     &::before
@@ -343,7 +349,6 @@ section
         
 #Showcase
     padding: 1rem 0 0 0
-    grid-auto-rows: minmax(200px, 250px)
     h2, h2 + p
         margin: 0
     a
@@ -359,10 +364,14 @@ section
         padding: 1rem
         width: 100%
         border: var(--text-colour) 1px solid  
+    .challange-title
+        grid-row: 1 / span 1
 
 @media screen and ( max-width: 800px )
-    #Showcase > div > p
-        display: none
+    #Showcase > div
+        margin-bottom: 1rem
+        & > p
+            display: none
 
 #Contact
     padding: 1rem 0
@@ -421,14 +430,20 @@ section
     a, & > div
         text-decoration: none
         align-items: center
-
+        @media screen and ( max-width: 800px )
+            grid-column: span 1
     p
         text-decoration: none
         color: var(--text-colour)
+        @media screen and ( max-width: 800px )
+            display: none
     a:hover
         .large-text
             text-decoration: underline
             text-decoration-thickness: 1px
+    @media screen and ( max-width: 800px )
+        & > div img
+            grid-row: span 2
     .large-text
         margin: 1rem 0 0 0
 

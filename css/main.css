@@ -354,15 +354,18 @@ path {
   transition: 300ms ease-out;
 }
 
-@media screen and (min-width: 800px) {
-  section {
-    display: grid;
-    grid-template-columns: subgrid;
-  }
-}
 section {
+  display: grid;
+  grid-template-columns: subgrid;
   gap: 20px;
   min-height: 100vh;
+}
+@media screen and (max-width: 800px) {
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 }
 
 #BackToTop {
@@ -403,6 +406,11 @@ section {
   position: relative;
   background: var(--page-bg);
   padding: 0 1rem 1rem 1rem;
+}
+@media screen and (max-width: 800px) {
+  .currently-doing {
+    padding: 0 0.25rem 1rem 0.25rem;
+  }
 }
 .currently-doing h2 {
   margin-top: 0;
@@ -470,7 +478,6 @@ section {
 
 #Showcase {
   padding: 1rem 0 0 0;
-  grid-auto-rows: minmax(200px, 250px);
 }
 #Showcase h2, #Showcase h2 + p {
   margin: 0;
@@ -491,8 +498,14 @@ section {
   width: 100%;
   border: var(--text-colour) 1px solid;
 }
+#Showcase .challange-title {
+  grid-row: 1/span 1;
+}
 
 @media screen and (max-width: 800px) {
+  #Showcase > div {
+    margin-bottom: 1rem;
+  }
   #Showcase > div > p {
     display: none;
   }
@@ -568,13 +581,28 @@ section {
   text-decoration: none;
   align-items: center;
 }
+@media screen and (max-width: 800px) {
+  .accounts a, .accounts > div {
+    grid-column: span 1;
+  }
+}
 .accounts p {
   text-decoration: none;
   color: var(--text-colour);
 }
+@media screen and (max-width: 800px) {
+  .accounts p {
+    display: none;
+  }
+}
 .accounts a:hover .large-text {
   text-decoration: underline;
   text-decoration-thickness: 1px;
+}
+@media screen and (max-width: 800px) {
+  .accounts > div img {
+    grid-row: span 2;
+  }
 }
 .accounts .large-text {
   margin: 1rem 0 0 0;
@@ -611,6 +639,7 @@ footer > div {
   footer > div {
     margin-top: 50px;
     align-items: center;
+    width: -moz-max-content;
     width: max-content;
     width: 100%;
   }
