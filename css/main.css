@@ -66,12 +66,22 @@
   font-weight: 400;
   line-height: normal;
 }
+@media screen and (max-width: 800px) {
+  .large-text {
+    font-size: 24px;
+  }
+}
 
 .normal-text {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 25px;
+}
+@media screen and (max-width: 800px) {
+  .normal-text {
+    font-size: 13px;
+  }
 }
 
 .small-text {
@@ -80,6 +90,11 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+@media screen and (max-width: 800px) {
+  .small-text {
+    font-size: 10px;
+  }
 }
 
 .color-grey {
@@ -134,12 +149,13 @@
   grid-column: 1/span 12;
 }
 
-.subgrid {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-auto-rows: min-content;
+@media screen and (min-width: 800px) {
+  .subgrid {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-auto-rows: min-content;
+  }
 }
-
 .grid-start-1 {
   grid-column-start: 1;
 }
@@ -221,7 +237,7 @@ body {
 
 main, footer {
   box-sizing: border-box;
-  --page-padding: 150px;
+  --page-padding: clamp(50px, 14vw, 150px);
   padding: 0 var(--page-padding);
 }
 
@@ -247,6 +263,11 @@ nav .navbar-collapse {
   opacity: 0;
   transition: 100ms visibility, 200ms opacity;
 }
+@media screen and (max-width: 800px) {
+  nav .navbar-collapse {
+    right: calc(0px - var(--element-padding));
+  }
+}
 nav .show {
   opacity: 1;
   visibility: visible;
@@ -259,6 +280,11 @@ nav .navbar-toggler {
   border: none;
   margin-top: 70px;
   cursor: pointer;
+}
+@media screen and (max-width: 800px) {
+  nav .navbar-toggler {
+    right: 0;
+  }
 }
 nav .navbar-toggler svg {
   fill: var(--text-colour);
@@ -328,9 +354,13 @@ path {
   transition: 300ms ease-out;
 }
 
+@media screen and (min-width: 800px) {
+  section {
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+}
 section {
-  display: grid;
-  grid-template-columns: subgrid;
   gap: 20px;
   min-height: 100vh;
 }
@@ -360,6 +390,13 @@ section {
   font-size: 80px;
   text-transform: uppercase;
   line-height: normal;
+}
+@media screen and (max-width: 800px) {
+  #BackToTop .hero *:not(.normal-text) {
+    font-size: 32px;
+    font-style: normal;
+    line-height: normal;
+  }
 }
 
 .currently-doing {
@@ -394,6 +431,11 @@ section {
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 800px) {
+  .currently-doing .items * {
+    font-size: 13px;
+  }
+}
 .currently-doing .items *::before {
   content: "";
   display: inline-block;
@@ -420,6 +462,11 @@ section {
   margin-top: 4px;
   text-align: justify;
 }
+@media screen and (max-width: 800px) {
+  .bio {
+    font-size: 13px;
+  }
+}
 
 #Showcase {
   padding: 1rem 0 0 0;
@@ -445,16 +492,13 @@ section {
   border: var(--text-colour) 1px solid;
 }
 
+@media screen and (max-width: 800px) {
+  #Showcase > div > p {
+    display: none;
+  }
+}
 #Contact {
-  padding-top: 1rem;
-}
-#Contact form fieldset {
-  border: none;
-  padding: 0;
-  display: contents;
-}
-#Contact form legend {
-  display: none;
+  padding: 1rem 0;
 }
 #Contact input:not([type=submit]), #Contact label, #Contact textarea {
   display: grid;
@@ -463,11 +507,34 @@ section {
 #Contact label {
   margin-top: 20px;
 }
+#Contact form {
+  position: relative;
+}
+@media screen and (max-width: 800px) {
+  #Contact form {
+    margin-bottom: 2rem;
+  }
+}
 #Contact [type=submit] {
   margin-top: 20px;
 }
 #Contact [type=submit]:hover {
   cursor: pointer;
+}
+@media screen and (max-width: 800px) {
+  #Contact [type=submit] {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 800px) {
+  #Contact form div {
+    position: absolute;
+    bottom: 0;
+    left: 55%;
+  }
+  #Contact form div svg {
+    vertical-align: bottom;
+  }
 }
 #Contact svg {
   margin-top: 25px;
@@ -484,6 +551,7 @@ section {
   padding: 12px;
   font-size: 20;
   resize: none;
+  width: 100%;
   font-family: "Red Hat Text", sans-serif;
 }
 #Contact textarea {
@@ -526,17 +594,37 @@ footer {
 footer svg {
   margin-top: 35vh;
   filter: drop-shadow(0px 0px 4px #FFF);
+  width: 100%;
+}
+@media screen and (max-width: 800px) {
+  footer svg {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 }
 footer > div {
   margin-top: 10vh;
   display: flex;
   flex-direction: column;
 }
+@media screen and (max-width: 800px) {
+  footer > div {
+    margin-top: 50px;
+    align-items: center;
+    width: max-content;
+    width: 100%;
+  }
+}
 footer a {
   margin-top: 33px;
   display: block;
   color: white;
   text-decoration: none;
+}
+@media screen and (max-width: 800px) {
+  footer a {
+    text-align: center;
+  }
 }
 footer a:hover {
   text-decoration: underline;
@@ -550,4 +638,5 @@ footer::before {
   background: var(--gradient);
   top: -3px;
   z-index: -1;
+  left: 0;
 }/*# sourceMappingURL=main.css.map */

@@ -61,6 +61,8 @@
     font-style: normal
     font-weight: 400
     line-height: normal
+    @media screen and ( max-width: 800px )
+        font-size: 24px
 
 // this class is already the default for the body so its superfluous to use it
 // i will still leave it here tho
@@ -69,12 +71,16 @@
     font-style: normal
     font-weight: 400
     line-height: 25px
+    @media screen and ( max-width: 800px )
+        font-size: 13px
 
 @mixin normal-text()
     font-size: 16px
     font-style: normal
     font-weight: 400
     line-height: 25px
+    @media screen and ( max-width: 800px )
+        font-size: 13px
 
 .small-text
     font-family: Red Hat Text
@@ -82,6 +88,9 @@
     font-style: normal
     font-weight: 400
     line-height: normal
+    @media screen and ( max-width: 800px )
+        font-size: 10px
+        
 
 .color-grey
     color: var(--grey) !important
@@ -90,11 +99,13 @@
 @for $i from 1 through 12  
     .span-#{$i}
         grid-column: 1 / span #{$i}
-
-.subgrid
-    display: grid
-    grid-template-columns: subgrid
-    grid-auto-rows: min-content
+        
+@media screen and ( min-width: 800px )
+    .subgrid
+        display: grid
+        grid-template-columns: subgrid
+        grid-auto-rows: min-content
+    
 
 @for $i from 1 through 12  
     .grid-start-#{$i}
@@ -131,8 +142,8 @@ body
 
 main, footer
     box-sizing: border-box
-    --page-padding: 150px
-    padding: 0 var(--page-padding)
+    --page-padding: clamp(50px, 14vw, 150px)
+    padding:  0 var(--page-padding)
 
 nav
     position: sticky
@@ -146,6 +157,8 @@ nav
         visibility: hidden
         position: absolute
         right: calc(var(--page-padding) - var(--element-padding))
+        @media screen and ( max-width: 800px  )
+            right: calc(0px - var(--element-padding))
         margin-top: calc(70px - var(--element-padding))
         background: var(--page-bg)
         border: 1px solid var(--text-colour)
@@ -163,6 +176,8 @@ nav
         z-index: 3
         position: absolute
         right: var(--page-padding)
+        @media screen and ( max-width: 800px  )
+            right: 0
         background: transparent
         border: none
         margin-top: 70px
@@ -231,9 +246,12 @@ path
     transition: 300ms ease-out
 
 
+@media screen and ( min-width: 800px  )
+    section
+        display: grid
+        grid-template-columns: subgrid
+
 section
-    display: grid
-    grid-template-columns: subgrid
     gap: 20px
     min-height: 100vh
 
@@ -243,6 +261,7 @@ section
     margin-top: -160px
     position: relative
     .hero
+            
         position: absolute
         left: 50%
         top: 50%
@@ -260,6 +279,11 @@ section
             font-size: 80px
             text-transform: uppercase
             line-height: normal
+            @media screen and ( max-width: 800px  )
+                font-size: 32px
+                font-style: normal
+                line-height: normal
+
 
 .currently-doing
     position: relative
@@ -311,6 +335,9 @@ section
     font-size: 18px
     margin-top: 4px
     text-align: justify
+    @media screen and ( max-width: 800px )
+        font-size: 13px
+
                 
 
         
@@ -331,33 +358,42 @@ section
         align-self: center
         padding: 1rem
         width: 100%
-        border: var(--text-colour) 1px solid        
+        border: var(--text-colour) 1px solid  
+
+@media screen and ( max-width: 800px )
+    #Showcase > div > p
+        display: none
 
 #Contact
-    padding-top: 1rem
-    form
-        fieldset
-            border: none
-            padding: 0
-            display: contents
-        legend
-            display: none
-    
+    padding: 1rem 0
     input:not([type="submit"]), label, textarea
         display: grid
         grid-column: span 6
     
     label
         margin-top: 20px
+    
+    form
+        position: relative
+        @media screen and ( max-width: 800px ) 
+            margin-bottom: 2rem
 
     [type="submit"]
         margin-top: 20px
         &:hover
             cursor: pointer
-    
+        @media screen and ( max-width: 800px )
+            width: 50%
+    @media screen and ( max-width: 800px )
+        form
+            div
+                position: absolute
+                bottom: 0
+                left: 55%
+                svg
+                    vertical-align: bottom
     svg
         margin-top: 25px
-        // animation: name 3s infinite
         *
             transform-origin: center
             fill: var(--text-colour)
@@ -371,6 +407,7 @@ section
         padding: 12px
         font-size: 20
         resize: none
+        width: 100%
         font-family: 'Red Hat Text', sans-serif
         
     textarea
@@ -404,18 +441,30 @@ footer
     height: calc( 99vh - 5px )
     background: #121212
     position: relative
+        
     svg
         margin-top: 35vh
+        @media screen and ( max-width: 800px )
+            margin-top: 40px
+            margin-bottom: 40px
         filter: drop-shadow(0px 0px 4px #FFF)
+        width: 100%
     & > div
         margin-top: 10vh
         display: flex
         flex-direction: column
+        @media screen and ( max-width: 800px )
+            margin-top: 50px
+            align-items: center
+            width: max-content
+            width: 100%
     a
         margin-top: 33px
         display: block
         color: white
         text-decoration: none
+        @media screen and ( max-width: 800px )
+            text-align: center
         &:hover
             text-decoration: underline
             text-decoration-thickness: 1px
@@ -427,3 +476,4 @@ footer
         background: var(--gradient)
         top: -3px
         z-index: -1
+        left: 0
