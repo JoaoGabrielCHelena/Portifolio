@@ -1,2 +1,2 @@
-Currently hosted in https://koala5617.github.io/Portifolio/   
+Currently hosted in https://joaogabrielchelena.github.io/Portifolio   
 resposivity is absolutely horrid
